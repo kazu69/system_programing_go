@@ -41,7 +41,7 @@ func readChunks(file *os.File) []io.Reader {
 }
 
 func main() {
-	file, err := os.Open("Lenna.png")
+	file, err := os.Open("Lenna2.png")
 	if err != nil {
 		panic(err)
 	}
