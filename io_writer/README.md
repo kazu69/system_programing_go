@@ -1,4 +1,4 @@
-### io.Writer memo
+### io.Writer
 
 - golangではOSのAPIの差異を吸収すべく、ファイルディクリプタを模倣している
 - Clangでは出力はバッファーリングするが、golangではバッファリングしない
