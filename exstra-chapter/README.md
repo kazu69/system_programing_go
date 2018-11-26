@@ -89,4 +89,29 @@ ssh, TLSで使う暗号化アルゴリズムはオープン。
 
 #### Goによるssh接続
 
+https://github.com/golang/crypto を使う。
+認証し、ssh.Dialで通信開始する。
+通信開始したらNewSession()でセッション開始。
 
+
+- Run(cmd): 指定したプログラムを実行して終了を待つ
+- Start(cmd): 指定したプログレムを実行、終了してWait()を待つ
+- Output(cmd): 指定したプログラムを実行して終了を待ちつつ、リモートのs標準出力を待つ
+- CombinedOutput(cmd): 指定した王ログラムを実行して終了を待ち地つつ、リモートの標準出力と標準エラー出力内容を返す
+
+認証にパスワード使う場合
+
+```golang
+config := &ssh_ClientConfig{
+  User: "root",
+  Auth: []ssh.AuthMethod(
+    ssh.Password("password")
+  )
+}
+```
+
+### keychain
+
+漏洩すると危険になる情報、例えばユーザーIDやパスワード、クレジットカードの情報など集中管理する仕組みをキーチェーンという。
+
+Go言語で簡単にキーチェインを扱うためのパッケージとして [keyring](https://github.com/tmc/keyring)などがある。
